@@ -1,0 +1,5 @@
+project: dev
+registry: ../../data/dev/features/registry.db
+provider: local
+online_store:
+    path: ../../data/dev/features/online_store.db
