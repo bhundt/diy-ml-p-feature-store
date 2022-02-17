@@ -1,4 +1,8 @@
 #!/bin/bash
+# This script pushes dev, staging, prod to GitHub as well as to production server.
+
+# settings
+APP_PATH=app
 
 # check input
 if [[ $# -eq 0 ]] ; then
@@ -33,15 +37,15 @@ cd diy-ml-p-feature-store
 
 # clear working folder
 echo ">>> Removing current deployment"
-rm -r ~/app/$1/feature-store/*
+rm -r ~/$APP_PATH/$1/feature-store/*
 
 # copy to working folder
 echo ">>> Dopying new files"
-cp -a src/. ~/app/$1/feature-store/
+cp -a src/. ~/$APP_PATH/$1/feature-store/
 
 # feast apply
 echo ">>> Applying changes"
-cd ~/app/$1/feature-store/
+cd ~/$APP_PATH/$1/feature-store/
 feast apply
 
 echo ">>> Removing temp files"
