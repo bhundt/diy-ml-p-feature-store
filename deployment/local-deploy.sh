@@ -13,7 +13,7 @@ fi
 if [[ "$1" =~ ^(dev)$ ]]; then
     echo ">>> Deploying: $1"
 else
-    echo "Wrong environment given! Deployment to local dev only!"
+    echo "Wrong environment given! Deployment to local on dev only!"
 	exit 1
 fi
 
