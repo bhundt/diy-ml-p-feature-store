@@ -1,4 +1,4 @@
-project: dev
+project: feature_store
 registry: ../data/features/registry.db
 provider: local
 online_store:

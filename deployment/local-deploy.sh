@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # settings
-DIY_ML_P_ENVIRONMENT=$1
+DIY_ML_P_ENVIRONMENT=local
 DIY_ML_P_REL_DEPLOY_PATH=../../app
 
 # check input
@@ -10,11 +10,19 @@ if [[ $# -eq 0 ]] ; then
     exit 1
 fi
 
-if [[ "$1" =~ ^(dev)$ ]]; then
+if [[ "$1" =~ ^(local)$ ]]; then
     echo ">>> Deploying: $1"
 else
     echo "Wrong environment given! Deployment to local on dev only!"
 	exit 1
+fi
+
+read -p "Script intended to be run from repo main folder and with ../../app/local/ rel. path . Are you sure you want to continue? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo "..exiting!"
+    exit 1
 fi
 
 # clear working folder
